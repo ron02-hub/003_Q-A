@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Data files
+data/responses/
+data/exports/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Logs
+*.log
+
+# Security - Personal Access Tokens
+token_key.txt
+*.token
+*.key
+
+# Media files (too large for git)
+99_Material/**/*.mp4
+99_Material/**/*.wav
+*.mp4
+*.wav

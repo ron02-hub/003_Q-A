@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV走行音アンケート 分析レポート</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+        }
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .section h3 {
+            color: #764ba2;
+            margin-top: 25px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #667eea;
+            color: white;
+            font-weight: bold;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .chart {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .chart img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        .insight-box {
+            background-color: #e7f3ff;
+            padding: 15px;
+            border-left: 4px solid #2196F3;
+            margin: 20px 0;
+        }
+        .stat-box {
+            display: inline-block;
+            background-color: #f8f9fa;
+            padding: 15px 25px;
+            margin: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
+        }
+        .stat-box strong {
+            display: block;
+            font-size: 1.5em;
+            color: #667eea;
+        }
+        .insight-box ul {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+        .insight-box ul ul {
+            margin-left: 20px;
+            margin-top: 5px;
+        }
+        .insight-box h4 {
+            color: #764ba2;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚗 EV走行音アンケート 分析レポート</h1>
+        <p>分析日時: 2026年01月12日 22:32</p>
+        <p>総回答数: 100名</p>
+    </div>
+
+    <!-- エグゼクティブサマリー -->
+    <div class="section">
+        <h2>📊 エグゼクティブサマリー</h2>
+        <div class="highlight">
+            <h3>主要発見事項</h3>
+
+            <p><strong>最も好まれた走行音:</strong> Prius (50名, 50.0%)</p>
+
+            <p><strong>購買意欲が最も高いサンプル:</strong> Prius (平均: 4.21/7.0)</p>
+
+            <h4>購買意欲への重要度 TOP3 (Prius)</h4>
+            <ol>
+
+                <li>音量感: 相関係数 0.258</li>
+
+                <li>高級感: 相関係数 0.206</li>
+
+                <li>自然さ: 相関係数 0.190</li>
+
+            </ol>
+
+        </div>
+    </div>
+
+    <!-- 調査概要 -->
+    <div class="section">
+        <h2>📋 調査概要</h2>
+        <h3>回答者属性</h3>
+
+        <div class="stat-box">
+            <strong>5</strong>
+            <span>年齢層</span>
+        </div>
+        <div class="stat-box">
+            <strong>4</strong>
+            <span>性別区分</span>
+        </div>
+        <div class="stat-box">
+            <strong>3</strong>
+            <span>EV経験区分</span>
+        </div>
+        <div class="stat-box">
+            <strong>5.7</strong>
+            <span>平均音感度</span>
+        </div>
+
+        <h3>年齢分布</h3>
+        <table>
+            <tr><th>年齢層</th><th>人数</th><th>割合</th></tr>
+
+            <tr><td>40-49歳</td><td>29名</td><td>29.0%</td></tr>
+
+            <tr><td>30-39歳</td><td>23名</td><td>23.0%</td></tr>
+
+            <tr><td>20-29歳</td><td>20名</td><td>20.0%</td></tr>
+
+            <tr><td>50-59歳</td><td>14名</td><td>14.0%</td></tr>
+
+            <tr><td>60-70歳</td><td>14名</td><td>14.0%</td></tr>
+
+        </table>
+    </div>
+
+    <!-- サンプル評価結果 -->
+    <div class="section">
+        <h2>🎵 サンプル評価結果</h2>
+
+        <h3>Prius の評価</h3>
+        <table>
+            <tr><th>評価軸</th><th>平均</th><th>標準偏差</th></tr>
+
+            <tr><td>音量感</td><td>1.44</td><td>1.12</td></tr>
+
+            <tr><td>質感</td><td>0.94</td><td>1.12</td></tr>
+
+            <tr><td>快感情</td><td>1.11</td><td>1.17</td></tr>
+
+            <tr><td>覚醒</td><td>-0.35</td><td>1.31</td></tr>
+
+            <tr><td>高級感</td><td>1.40</td><td>1.29</td></tr>
+
+            <tr><td>先進性</td><td>0.93</td><td>1.12</td></tr>
+
+            <tr><td>パワー感</td><td>-0.43</td><td>1.18</td></tr>
+
+            <tr><td>安心感</td><td>1.37</td><td>1.07</td></tr>
+
+            <tr><td>自然さ</td><td>0.35</td><td>1.18</td></tr>
+
+        </table>
+        <div class="chart">
+            <img src="charts/C02_SD%E8%A9%95%E4%BE%A1%E3%83%AC%E3%83%BC%E3%83%80%E3%83%BC%E3%83%81%E3%83%A3%E3%83%BC%E3%83%88.png" alt="SD評価レーダーチャート">
+        </div>
+
+        <h3>Fit の評価</h3>
+        <table>
+            <tr><th>評価軸</th><th>平均</th><th>標準偏差</th></tr>
+
+            <tr><td>音量感</td><td>-0.06</td><td>1.43</td></tr>
+
+            <tr><td>質感</td><td>0.72</td><td>1.10</td></tr>
+
+            <tr><td>快感情</td><td>0.67</td><td>1.21</td></tr>
+
+            <tr><td>覚醒</td><td>0.18</td><td>1.20</td></tr>
+
+            <tr><td>高級感</td><td>-0.37</td><td>1.37</td></tr>
+
+            <tr><td>先進性</td><td>-0.46</td><td>1.23</td></tr>
+
+            <tr><td>パワー感</td><td>0.14</td><td>1.14</td></tr>
+
+            <tr><td>安心感</td><td>0.44</td><td>1.10</td></tr>
+
+            <tr><td>自然さ</td><td>1.48</td><td>1.18</td></tr>
+
+        </table>
+        <div class="chart">
+            <img src="charts/C02_SD%E8%A9%95%E4%BE%A1%E3%83%AC%E3%83%BC%E3%83%80%E3%83%BC%E3%83%81%E3%83%A3%E3%83%BC%E3%83%88.png" alt="SD評価レーダーチャート">
+        </div>
+
+        <h3>Model3 の評価</h3>
+        <table>
+            <tr><th>評価軸</th><th>平均</th><th>標準偏差</th></tr>
+
+            <tr><td>音量感</td><td>0.51</td><td>1.18</td></tr>
+
+            <tr><td>質感</td><td>0.68</td><td>1.29</td></tr>
+
+            <tr><td>快感情</td><td>0.70</td><td>1.15</td></tr>
+
+            <tr><td>覚醒</td><td>1.56</td><td>1.15</td></tr>
+
+            <tr><td>高級感</td><td>0.77</td><td>1.21</td></tr>
+
+            <tr><td>先進性</td><td>1.76</td><td>1.19</td></tr>
+
+            <tr><td>パワー感</td><td>1.31</td><td>1.28</td></tr>
+
+            <tr><td>安心感</td><td>0.41</td><td>1.30</td></tr>
+
+            <tr><td>自然さ</td><td>-1.07</td><td>1.23</td></tr>
+
+        </table>
+        <div class="chart">
+            <img src="charts/C02_SD%E8%A9%95%E4%BE%A1%E3%83%AC%E3%83%BC%E3%83%80%E3%83%BC%E3%83%81%E3%83%A3%E3%83%BC%E3%83%88.png" alt="SD評価レーダーチャート">
+        </div>
+
+        <h3>購買意欲</h3>
+        <table>
+            <tr><th>サンプル</th><th>平均</th><th>標準偏差</th></tr>
+
+            <tr><td>Prius</td><td>4.21</td><td>0.94</td></tr>
+
+            <tr><td>Fit</td><td>3.81</td><td>0.95</td></tr>
+
+            <tr><td>Model3</td><td>4.12</td><td>0.84</td></tr>
+
+        </table>
+        <div class="chart">
+            <img src="charts/C03_%E8%B3%BC%E8%B2%B7%E6%84%8F%E6%AC%B2%E5%88%86%E5%B8%83.png" alt="購買意欲分布">
+        </div>
+    </div>
+
+    <!-- 要因分析 -->
+    <div class="section">
+        <h2>🔍 要因分析</h2>
+        
+        <div class="insight-box">
+            <h3>📊 グラフの見方（小学生向け説明）</h3>
+            <p><strong>このセクションでは、どんなグラフが使われているか、どうやって見るかを説明します。</strong></p>
+            <h4>1. SD軸相関マトリクス（四角いマス目のグラフ）</h4>
+            <ul>
+                <li><strong>このグラフは何？</strong> 評価の項目同士がどのくらい似ているかを色で表したものです。</li>
+                <li><strong>どう見るの？</strong> グラフの横と縦に項目名（「音量感」「快感情」など）が並んでいます。</li>
+                <li><strong>色の意味は？</strong> 
+                    <ul>
+                        <li>🔴 <strong>赤い色</strong> = 数字が「+1」に近い = 似ている（一方が高いと、もう一方も高い）</li>
+                        <li>⚪ <strong>白い色</strong> = 数字が「0」に近い = 関係がない</li>
+                        <li>🔵 <strong>青い色</strong> = 数字が「-1」に近い = 逆の関係（一方が高いと、もう一方は低い）</li>
+                    </ul>
+                </li>
+                <li><strong>マス目の数字は？</strong> マスの真ん中に書いてある数字（例：0.85、-0.32など）が、似ている度合いを表します。1.0に近いほど、とても似ています。</li>
+                <li><strong>たとえば：</strong> 「快感情」と「高級感」が赤い色だったら、「心地よさ」と「高級感」は一緒に高くなりやすいということです。</li>
+            </ul>
+            
+            <h4>2. 購買意欲への重要度（横棒グラフ）</h4>
+            <ul>
+                <li><strong>このグラフは何？</strong> 「車を買いたい！」と思う気持ちに、どの評価項目が大切かを表したグラフです。</li>
+                <li><strong>どう見るの？</strong> 
+                    <ul>
+                        <li>左側に評価項目の名前が書いてあります（「高級感」「快感情」など）</li>
+                        <li>右側に棒が伸びています</li>
+                        <li>棒が右に長く伸びているほど、「車を買いたい」気持ちに大きく影響します</li>
+                    </ul>
+                </li>
+                <li><strong>色の意味は？</strong>
+                    <ul>
+                        <li>🔵 <strong>青い棒</strong> = プラス（この項目が高くなると、買いたい気持ちが強くなる）</li>
+                        <li>🔴 <strong>赤い棒</strong> = マイナス（この項目が高くなると、買いたい気持ちが弱くなる）</li>
+                    </ul>
+                </li>
+                <li><strong>たとえば：</strong> 「高級感」の棒が一番長かったら、「高級感がある走行音だと、多くの人が車を買いたくなる」という意味です。</li>
+                <li><strong>横軸の数字（相関係数）は？</strong> 
+                    <ul>
+                        <li>0.3以上 = 結構重要</li>
+                        <li>0.5以上 = とても重要</li>
+                        <li>-0.3以下 = 逆に影響する（高くなると買いたくなくなる）</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <h3>SD軸相関マトリクス</h3>
+        <div class="chart">
+            <img src="charts/C04_SD%E8%BB%B8%E7%9B%B8%E9%96%A2%E3%83%9E%E3%83%88%E3%83%AA%E3%82%AF%E3%82%B9.png" alt="SD軸相関マトリクス">
+        </div>
+        <p><em>※ 上記の「グラフの見方」を参考に、このグラフを見てください。色が濃い（赤や青）マスほど、関係が強いことを表します。</em></p>
+        
+        <h3>購買意欲への重要度</h3>
+        <div class="chart">
+            <img src="charts/C05_%E8%B3%BC%E8%B2%B7%E6%84%8F%E6%AC%B2%E8%A6%81%E5%9B%A0%E5%88%86%E6%9E%90.png" alt="購買意欲要因分析">
+        </div>
+        <p><em>※ 上記の「グラフの見方」を参考に、このグラフを見てください。棒が右に長い項目ほど、「車を買いたい」気持ちに大きく影響します。</em></p>
+
+        <h4>Prius の購買意欲への重要度 TOP5</h4>
+        <table>
+            <tr><th>ランク</th><th>評価軸</th><th>相関係数</th></tr>
+
+            <tr><td>1</td><td>音量感</td><td>0.258</td></tr>
+
+            <tr><td>2</td><td>高級感</td><td>0.206</td></tr>
+
+            <tr><td>3</td><td>自然さ</td><td>0.190</td></tr>
+
+            <tr><td>4</td><td>覚醒</td><td>0.160</td></tr>
+
+            <tr><td>5</td><td>質感</td><td>0.118</td></tr>
+
+        </table>
+
+        <h4>Fit の購買意欲への重要度 TOP5</h4>
+        <table>
+            <tr><th>ランク</th><th>評価軸</th><th>相関係数</th></tr>
+
+            <tr><td>1</td><td>安心感</td><td>0.331</td></tr>
+
+            <tr><td>2</td><td>質感</td><td>0.286</td></tr>
+
+            <tr><td>3</td><td>音量感</td><td>0.208</td></tr>
+
+            <tr><td>4</td><td>自然さ</td><td>0.155</td></tr>
+
+            <tr><td>5</td><td>覚醒</td><td>0.145</td></tr>
+
+        </table>
+
+        <h4>Model3 の購買意欲への重要度 TOP5</h4>
+        <table>
+            <tr><th>ランク</th><th>評価軸</th><th>相関係数</th></tr>
+
+            <tr><td>1</td><td>快感情</td><td>-0.181</td></tr>
+
+            <tr><td>2</td><td>自然さ</td><td>0.173</td></tr>
+
+            <tr><td>3</td><td>安心感</td><td>0.138</td></tr>
+
+            <tr><td>4</td><td>パワー感</td><td>0.124</td></tr>
+
+            <tr><td>5</td><td>先進性</td><td>0.069</td></tr>
+
+        </table>
+
+    </div>
+
+    <!-- セグメント分析 -->
+    <div class="section">
+        <h2>👥 セグメント分析</h2>
+        <div class="chart">
+            <img src="charts/C06_%E3%82%BB%E3%82%B0%E3%83%A1%E3%83%B3%E3%83%88%E7%89%B9%E6%80%A7_%E5%B9%B4%E9%BD%A2%E5%B1%A4%E5%88%A5.png" alt="セグメント特性">
+        </div>
+
+        <h3>年齢層別購買意欲</h3>
+        <table>
+            <tr><th>年齢層</th><th>Prius</th><th>Fit</th><th>Model3</th></tr><tr><td>50-59歳</td><td>4.21</td><td>3.79</td><td>4.00</td></tr><tr><td>20-29歳</td><td>3.95</td><td>3.75</td><td>4.10</td></tr><tr><td>60-70歳</td><td>4.50</td><td>4.00</td><td>4.14</td></tr><tr><td>30-39歳</td><td>4.22</td><td>4.00</td><td>4.30</td></tr><tr><td>40-49歳</td><td>4.24</td><td>3.62</td><td>4.03</td></tr>
+        </table>
+    </div>
+
+    <!-- インサイト -->
+    <div class="section">
+        <h2>💡 インサイト</h2>
+        <h3>ラダリング分析</h3>
+        <div class="chart">
+            <img src="charts/C07_%E3%83%A9%E3%83%80%E3%83%AA%E3%83%B3%E3%82%B0%E5%88%86%E6%9E%90.png" alt="ラダリング分析">
+        </div>
+        
+        <h4>ラダリングネットワーク分析</h4>
+        <div class="insight-box">
+            <p><strong>ネットワーク図の見方：</strong></p>
+            <ul>
+                <li><strong>ノード（丸）</strong> = ラダリングの選択肢（「高級感を感じる」「満足感が得られる」など）</li>
+                <li><strong>矢印（→）</strong> = 同じ人に選ばれた関係（「高級感を感じる」→「満足感が得られる」）</li>
+                <li><strong>太い矢印</strong> = 多くの人が一緒に選んだ関係（関係が強い）</li>
+                <li><strong>たとえば：</strong> 「高級感を感じる」から「満足感が得られる」への矢印が太ければ、「高級感があると、満足感を感じる人が多い」という意味です</li>
+            </ul>
+        </div>
+        <div class="chart">
+            <img src="charts/C07-2_%E3%83%A9%E3%83%80%E3%83%AA%E3%83%B3%E3%82%B0%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E5%88%86%E6%9E%90.png" alt="ラダリングネットワーク分析">
+        </div>
+
+        <h4>良い理由 TOP5</h4>
+        <ol>
+<li>静寂感がある (17回)</li><li>信頼感がある (15回)</li><li>上品な印象 (14回)</li><li>心が和む (13回)</li><li>自然な感じがする (13回)</li>
+        </ol>
+        <h4>良い気持ち TOP5</h4>
+        <ol>
+<li>穏やかな気持ちになる (17回)</li><li>愛着が湧く (16回)</li><li>幸福感を感じる (14回)</li><li>信頼感が生まれる (12回)</li><li>リラックスできる (12回)</li>
+        </ol>
+        <h3>最良・最悪音選択</h3>
+        <div class="chart">
+            <img src="charts/C08_%E6%9C%80%E8%89%AF%E6%9C%80%E6%82%AA%E9%9F%B3%E9%81%B8%E6%8A%9E.png" alt="最良最悪音選択">
+        </div>
+    </div>
+
+    <!-- 提言 -->
+    <div class="section">
+        <h2>💼 提言</h2>
+        <div class="insight-box">
+            <h3>理想の走行音要件</h3>
+
+            <h4>購買意欲を高める重要な要素（優先順位順）</h4>
+            <ol>
+<li>音量感を重視した走行音設計</li><li>高級感を重視した走行音設計</li><li>自然さを重視した走行音設計</li><li>覚醒を重視した走行音設計</li><li>質感を重視した走行音設計</li>
+            </ol>
+
+        </div>
+    </div>
+
+    <!-- 付録 -->
+    <div class="section">
+        <h2>📎 付録</h2>
+        <h3>回答者属性詳細</h3>
+        <div class="chart">
+            <img src="charts/C01_%E5%9B%9E%E7%AD%94%E8%80%85%E5%B1%9E%E6%80%A7%E5%88%86%E5%B8%83.png" alt="回答者属性分布">
+        </div>
+        <p><em>本レポートは自動生成されました。分析日時: 2026年01月12日 22:32</em></p>
+    </div>
+</body>
+</html>
